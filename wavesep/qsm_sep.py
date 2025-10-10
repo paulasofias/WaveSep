@@ -14,7 +14,7 @@ with open(args.data, "r") as f:
 alg_config = {}
 alg_config["alpha"] = 0.2
 alg_config["wavelet"] = "db4"
-alg_config["level"] = None
+alg_config["level"] = 1  # code adaptation chisep: change level to 1
 alg_config["Lambda"] = 0.02
 
 

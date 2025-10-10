@@ -119,6 +119,10 @@ class SolverOperators(object):
         xp3d_new = pywt.waverecn(coeffsp_soft, self.wavelet, mode="periodization")
         xn3d_new = pywt.waverecn(coeffsn_soft, self.wavelet, mode="periodization")
 
+        # code adaptation chisep: padding introduced during reconstruction -> trim result
+        xp3d_new = xp3d_new[tuple(slice(0, s) for s in self.shape)]
+        xn3d_new = xn3d_new[tuple(slice(0, s) for s in self.shape)]
+
         # flatten
         x_new = np.concatenate((xp3d_new.reshape(-1), xn3d_new.reshape(-1)))
         return x_new
@@ -320,5 +324,6 @@ def save_fig(solver, fn):
 
 def save_nii(xp, xn, affine, folder):
     os.makedirs(folder, exist_ok=True)
-    nib.Nifti1Image(xp, affine).to_filename(folder + "/xp.nii.gz")
-    nib.Nifti1Image(-xn, affine).to_filename(folder + "/xn.nii.gz")
+    # code adaptation chisep: change filename
+    nib.Nifti1Image(xp, affine).to_filename(folder + "/ChiPara.nii")
+    nib.Nifti1Image(-xn, affine).to_filename(folder + "/ChiDia.nii")
