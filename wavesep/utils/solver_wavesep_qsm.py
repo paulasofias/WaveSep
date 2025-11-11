@@ -229,8 +229,8 @@ class Solver(object):
                 evaluator=self.evaluator,
                 x3d=np.stack((xp, xn), axis=-1),
             )
-            print(self.metrics[-1])
-            print(self.relative_change[-1])
+            # print(self.metrics[-1])
+            # print(self.relative_change[-1])
             if self.relative_change[-1] < 1e-3:
                 break
 
@@ -327,3 +327,4 @@ def save_nii(xp, xn, affine, folder):
     # code adaptation chisep: change filename
     nib.Nifti1Image(xp, affine).to_filename(folder + "/ChiPara.nii")
     nib.Nifti1Image(-xn, affine).to_filename(folder + "/ChiDia.nii")
+    nib.Nifti1Image(xp-xn, affine).to_filename(folder + "/ChiTot.nii")

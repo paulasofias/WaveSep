@@ -15,6 +15,7 @@ def run_wavesep_qsm(data_info, alg_config):
         data["params"],
         data["gt"],
     )
+    gt = None
     Dr_pos, Dr_neg = params["Dr_pos"], params["Dr_neg"]
     # assert Dr_pos == Dr_neg  # only support Dr_pos == Dr_neg
     if Dr_pos != Dr_neg:

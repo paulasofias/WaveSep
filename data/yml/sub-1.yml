@@ -1,0 +1,9 @@
+- name: sub-1
+  output_folder: /scratch/user/uqpstoll/chi_separation_output/fake_dataset/sub-1/wavesep
+  qsm_fn: /scratch/user/uqpstoll/forward_model_output/phantom/fake_dataset/derivatives/estimates/sub-1/sub-1_Chimap_estimate.nii
+  R2p_fn_list:
+  - /scratch/user/uqpstoll/forward_model_output/phantom/fake_dataset/derivatives/estimates/sub-1/sub-1_R2prime_estimate.nii
+  mask_fn: /scratch/user/uqpstoll/forward_model_output/phantom/fake_dataset/derivatives/qsm_forward/sub-1/anat/sub-1_mask.nii
+  H0_fn_list:
+  - /scratch/user/uqpstoll/qsm-source-separation/Chisep_modules/WaveSep/data/yml/H0_orient.txt
+  params_fn: /scratch/user/uqpstoll/qsm-source-separation/Chisep_modules/WaveSep/data/yml/params.json
